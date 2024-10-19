@@ -25,7 +25,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset(
-                  'assets/logo.png'), // Tambahkan gambar logo Anda di sini
+                  'assets/UNDIKNAS.jpeg'), // Tambahkan gambar logo Anda di sini
               SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
