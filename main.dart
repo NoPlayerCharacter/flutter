@@ -6,7 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
-  Widget buil(BuildContext context) {
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: LoginPage(),
     );
