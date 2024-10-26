@@ -93,7 +93,7 @@ class WebLayout extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'assets/meme.jpeg', // Path gambar dari aset
+                          'assets/meme_image.jpeg', // Path gambar dari aset
                           width: 300, // Ukuran lebar gambar
                           height: 300, // Ukuran tinggi gambar
                           fit: BoxFit.cover,
