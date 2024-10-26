@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Web Layout',
+      title: 'Apakah Ini Web',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -34,7 +34,7 @@ class WebLayout extends StatelessWidget {
               children: [
                 SizedBox(height: 20),
                 Text(
-                  'Sidebar',
+                  '👈👉',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
@@ -74,10 +74,10 @@ class WebLayout extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Header',
+                      'MEME terbaru hari ini',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 25,
                       ),
                     ),
                     Icon(Icons.notifications, color: Colors.white),
@@ -89,9 +89,21 @@ class WebLayout extends StatelessWidget {
                 child: Container(
                   color: Colors.grey[200],
                   child: Center(
-                    child: Text(
-                      'Main Content Area',
-                      style: TextStyle(fontSize: 24),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/meme.jpeg', // Path gambar dari aset
+                          width: 300, // Ukuran lebar gambar
+                          height: 300, // Ukuran tinggi gambar
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          'Fufufafa berantem sama skibidi',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                      ],
                     ),
                   ),
                 ),
