@@ -8,87 +8,98 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      title: 'Flutter Web Layout',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        body: WebLayout(),
+      ),
     );
   }
 }
 
-class LoginPage extends StatelessWidget {
+class WebLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+    return Row(
+      children: [
+        // Sidebar
+        Expanded(
+          flex: 1,
+          child: Container(
+            color: Colors.blueGrey[800],
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                Text(
+                  'Sidebar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+                Divider(color: Colors.white),
+                ListTile(
+                  leading: Icon(Icons.home, color: Colors.white),
+                  title: Text('Home', style: TextStyle(color: Colors.white)),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.person, color: Colors.white),
+                  title: Text('Profile', style: TextStyle(color: Colors.white)),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings, color: Colors.white),
+                  title:
+                      Text('Settings', style: TextStyle(color: Colors.white)),
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+        // Content area
+        Expanded(
+          flex: 3,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(
-                  'assets/UNDIKNAS.jpeg'), // Tambahkan gambar logo Anda di sini
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.email, color: Colors.orange),
-                  labelText: 'E-mail',
-                  labelStyle: TextStyle(color: Colors.white),
-                  filled: true,
-                  fillColor: Colors.grey[800],
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide.none,
+            children: [
+              // Header
+              Container(
+                padding: EdgeInsets.all(16),
+                color: Colors.blue[700],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Header',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Icon(Icons.notifications, color: Colors.white),
+                  ],
+                ),
+              ),
+              // Main Content
+              Expanded(
+                child: Container(
+                  color: Colors.grey[200],
+                  child: Center(
+                    child: Text(
+                      'Main Content Area',
+                      style: TextStyle(fontSize: 24),
+                    ),
                   ),
-                ),
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.vpn_key, color: Colors.orange),
-                  labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.white),
-                  filled: true,
-                  fillColor: Colors.grey[800],
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                    borderSide: BorderSide.none,
-                  ),
-                  suffixIcon: Icon(Icons.visibility, color: Colors.white),
-                ),
-                style: TextStyle(color: Colors.white),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-                child: Text('Login'),
-              ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'New students? Click here',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Forgot the password',
-                  style: TextStyle(color: Colors.white),
                 ),
               ),
             ],
           ),
         ),
-      ),
+      ],
     );
   }
 }
