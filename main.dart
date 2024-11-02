@@ -8,110 +8,77 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Apakah Ini Web',
+      title: 'Biodata Mahasiswa',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: WebLayout(),
-      ),
+      home: BiodataScreen(),
     );
   }
 }
 
-class WebLayout extends StatelessWidget {
+class BiodataScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // Sidebar
-        Expanded(
-          flex: 1,
-          child: Container(
-            color: Colors.blueGrey[800],
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SizedBox(height: 20),
-                Text(
-                  '👈👉',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-                Divider(color: Colors.white),
-                ListTile(
-                  leading: Icon(Icons.home, color: Colors.white),
-                  title: Text('Home', style: TextStyle(color: Colors.white)),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: Icon(Icons.person, color: Colors.white),
-                  title: Text('Profile', style: TextStyle(color: Colors.white)),
-                  onTap: () {},
-                ),
-                ListTile(
-                  leading: Icon(Icons.settings, color: Colors.white),
-                  title:
-                      Text('Settings', style: TextStyle(color: Colors.white)),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ),
-        ),
-        // Content area
-        Expanded(
-          flex: 3,
+    // Mendapatkan ukuran layar agar responsif
+    var screenSize = MediaQuery.of(context).size;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Biodata Mahasiswa'),
+      ),
+      body: Center(
+        child: Container(
+          width: screenSize.width * 0.9, // Sesuaikan dengan lebar layar
+          padding: EdgeInsets.all(16.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Header
-              Container(
-                padding: EdgeInsets.all(16),
-                color: Colors.blue[700],
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'meme code in nutshell',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                      ),
-                    ),
-                    Icon(Icons.notifications, color: Colors.white),
-                  ],
+              // Foto Profil Mahasiswa
+              CircleAvatar(
+                radius: screenSize.width * 0.2, // Ukuran menyesuaikan layar
+                backgroundImage: NetworkImage(
+                  'https://www.example.com/path/to/photo.jpg', // Ganti URL dengan foto mahasiswa
                 ),
               ),
-              // Main Content
-              Expanded(
-                child: Container(
-                  color: Colors.grey[200],
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/meme_image.jpeg', // Path gambar dari aset
-                          width: 500, // Ukuran lebar gambar
-                          height: 300, // Ukuran tinggi gambar
-                          fit: BoxFit.cover,
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          'how i see the copilot',
-                          style: TextStyle(fontSize: 24),
-                        ),
-                      ],
-                    ),
-                  ),
+              SizedBox(height: 20),
+              // Nama Mahasiswa
+              Text(
+                'Nama Mahasiswa',
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.06, // Menyesuaikan ukuran font
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+              SizedBox(height: 10),
+              // NIM
+              Text(
+                'NIM: 1234567890',
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.05,
+                ),
+              ),
+              SizedBox(height: 10),
+              // Jurusan
+              Text(
+                'Jurusan: Teknik Informatika',
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.05,
+                ),
+              ),
+              SizedBox(height: 20),
+              // Informasi Tambahan (Opsional)
+              Text(
+                'Universitas: Universitas XYZ\nAngkatan: 2021\nHobi: Membaca, Coding, Bermain Musik',
+                style: TextStyle(
+                  fontSize: screenSize.width * 0.04,
+                ),
+                textAlign: TextAlign.center,
               ),
             ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
