@@ -74,7 +74,7 @@ class WebLayout extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'MEME terbaru hari ini',
+                      'meme code in nutshell',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 25,
@@ -94,13 +94,13 @@ class WebLayout extends StatelessWidget {
                       children: [
                         Image.asset(
                           'assets/meme_image.jpeg', // Path gambar dari aset
-                          width: 300, // Ukuran lebar gambar
+                          width: 500, // Ukuran lebar gambar
                           height: 300, // Ukuran tinggi gambar
                           fit: BoxFit.cover,
                         ),
                         SizedBox(height: 20),
                         Text(
-                          'Fufufafa berantem sama skibidi',
+                          'how i see the copilot',
                           style: TextStyle(fontSize: 24),
                         ),
                       ],
